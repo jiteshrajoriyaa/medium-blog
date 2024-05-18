@@ -2,7 +2,6 @@ import { useBlog } from '../hooks'
 import { useParams } from 'react-router-dom';
 import { SingleBlog } from '../components/SingleBlog';
 import { Appbar } from '../components/Appbar';
-import { Skelaton } from '../components/Skelaton';
 import { Spiner } from '../components/Spiner';
 
 export const Blog = () => {
