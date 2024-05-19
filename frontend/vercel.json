@@ -1,9 +1,8 @@
 {
-    "build": {
-      "env": {
-        "NODE_VERSION": "16.x"
-      },
-      "command": "npm run prebuild && npm run build"
+  "rewrites":[
+    {
+      "source": "/(.*)",
+      "destination": "/"
     }
-  }
-  
+  ]
+}
