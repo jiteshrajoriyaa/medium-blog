@@ -68,7 +68,8 @@ blogRouter.post('/', async (c) => {
 
 
     return c.json({
-      id: blog.id
+      id: blog.id,
+      img: blog.img
     })
   } catch (e) {
     console.log(e);
@@ -155,7 +156,8 @@ blogRouter.get('/:id', async (c) => {
           select:{
             name: true
           }
-        }
+        },
+        img: true
       }
     })
 

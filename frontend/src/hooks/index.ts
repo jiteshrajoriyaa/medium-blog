@@ -8,7 +8,7 @@ export interface Blog {
     "id": string,
     "author": {
         "name": string
-    }
+    },
     "img": string
 }
 
@@ -26,9 +26,7 @@ export const useBlog = ({ id }: { id: string }) => {
             }
         )
             .then(response => {
-                console.log("IIIII")
                 setBlog(response.data.blog);
-                console.log("IIIII")
                 setLoading(false)
             })
     }, [id])
@@ -64,3 +62,13 @@ export const useBlogs = () => {
     }
 }
 
+export const getName = () =>{
+    
+    const token = localStorage.getItem("token") || ""
+    const tokenWithoutBearer = token.replace("Bearer ", "");
+    const [header,payload,signature]:any = tokenWithoutBearer?.split(".");
+    const decodedPayload = JSON.parse(atob(payload));
+    const name = decodedPayload.name;
+
+    return name;
+}

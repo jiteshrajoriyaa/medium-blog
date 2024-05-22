@@ -3,10 +3,11 @@ import { Quote } from "../components/Quote"
 
 export const Signup = ()=>{
 
-    return (
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+    return (<div className="flex justify-center items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 justify-items-center">
             <Auth type = "signup"/>
-            <div className="invisible lg:visible"><Quote/></div>
+            <div className="hidden lg:block"><Quote/></div>
+        </div>
         </div>
     )
 }

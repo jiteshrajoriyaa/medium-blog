@@ -1,4 +1,4 @@
-import { useBlog } from '../hooks'
+import { getName, useBlog } from '../hooks'
 import { useParams } from 'react-router-dom';
 import { SingleBlog } from '../components/SingleBlog';
 import { Appbar } from '../components/Appbar';
@@ -11,9 +11,10 @@ export const Blog = () => {
     id: id || ""
   });
 
+  const name = getName();
   if (loading || !blog) {
     return <div>
-      <Appbar/>
+      <Appbar name = {name}/>
       <div className='flex justify-center items-center'>
         <Spiner />
       </div>
@@ -21,8 +22,8 @@ export const Blog = () => {
   }
 
   return <div>
-    <Appbar />
-    <div className='flex justify-center mt-40'>
+    <Appbar name = {name}/>
+    <div className='flex justify-center mt-24 mb-24 w-screen'>
       <SingleBlog blog={blog} />
 
     </div>
