@@ -66,7 +66,7 @@ export const getName = () =>{
     
     const token = localStorage.getItem("token") || ""
     const tokenWithoutBearer = token.replace("Bearer ", "");
-    const [header,payload,signature]:any = tokenWithoutBearer?.split(".");
+    const [payload]:any = tokenWithoutBearer?.split(".");
     const decodedPayload = JSON.parse(atob(payload));
     const name = decodedPayload.name;
 
