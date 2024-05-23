@@ -9,7 +9,8 @@ export interface Blog {
     "author": {
         "name": string
     },
-    "img": string
+    "img": string,
+    "key": string
 }
 
 export const useBlog = ({ id }: { id: string }) => {
