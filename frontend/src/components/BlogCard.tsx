@@ -38,10 +38,11 @@ export const BlogCard = ({ heading, description, authorName, publishedDate, imgS
 }
 
 export function Avtar({ name }: { name: string }) {
+    const initial = name && name.length > 0 ? name[0] : '';
 
     return <>
         <div className="relative inline-flex items-center justify-center w-7 h-7 lg:w-8 lg:h-8 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-            <span className="font-medium text-gray-600 dark:text-gray-300 text-xs">{name[0]}</span>
+            <span className="font-medium text-gray-600 dark:text-gray-300 text-xs">{initial}</span>
         </div>
     </>
 
