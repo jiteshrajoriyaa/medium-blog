@@ -11,7 +11,7 @@ export const Blogs = () =>{
     if(loading){
         return <div>
              <Appbar name={name}/>
-        <div className="flex items-center justify-center flex-col">
+        <div className="flex items-center justify-center flex-col w-screen">
             <Skelaton/>
             <Skelaton/>
             <Skelaton/>

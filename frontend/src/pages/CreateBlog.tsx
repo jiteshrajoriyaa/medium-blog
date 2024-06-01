@@ -11,6 +11,7 @@ export const CreateBlog = () => {
     const [title, setTitle] = useState("");
     const [des, setDes] = useState("");
     const [img, setImg] = useState("");
+    const [loading,setLoading] = useState(false);
     const navigate = useNavigate();
 
     const name = getName();
@@ -31,7 +32,7 @@ export const CreateBlog = () => {
                             <div>
                                 <textarea onChange={(e) => {
                                     setDes(e.target.value)
-                                }} id="comment" rows={16} className=" px-0   bg-white border-0  focus:ring-0 font-medium text-black text-xl font-serif w-full focus:outline-none resize-none " placeholder="Tell your story..." required ></textarea>
+                                }} id="comment" rows={16} className=" px-0   bg-white border-0  focus:ring-0 font-medium text-black text-xl font-serif w-full focus:outline-none resize-none whitespace-pre-wrap" placeholder="Tell your story..." required ></textarea>
                             </div>
                         </div>
                     </form>
@@ -43,6 +44,7 @@ export const CreateBlog = () => {
                             }}/>
                     <div className="flex items-center justify-between py-4 ">
                                 <button onClick={async () => {
+                                    setLoading(true);
                                     const response = await axios.post(`${BACKEND_URL}/api/v1/blog`,
                                         {
                                             title,
@@ -54,11 +56,32 @@ export const CreateBlog = () => {
                                             }
                                     }
                                     );
-                                    console.log(response.data.id)
+                                    setLoading(false);
                                     navigate(`/blog/${response.data.id}`)
                                 }} type="submit" 
-                                className="inline-flex items-center py-2.5 px-4 text-s font-medium text-center text-white bg-gray-900 rounded-lg hover:bg-gray-200 ">
-                                    Publish
+                                className="items-center py-2.5 px-4 text-s font-medium text-center text-white bg-gray-900 rounded-lg hover:bg-gray-500  flex justify-center">
+                                    {loading?(
+                                         <svg
+                                         className="animate-spin h-5 w-5 mr-3 text-white"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                       >
+                                         <circle
+                                           className="opacity-25"
+                                           cx="12"
+                                           cy="12"
+                                           r="10"
+                                           stroke="currentColor"
+                                           strokeWidth="4"
+                                         ></circle>
+                                         <path
+                                           className="opacity-75"
+                                           fill="currentColor"
+                                           d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                                         ></path>
+                                       </svg>
+                                    ):("Publish")}
                                 </button>
                             </div>
                 </div>

@@ -17,7 +17,6 @@ export const useBlog = ({ id }: { id: string }) => {
 
     const [loading, setLoading] = useState(true);
     const [blog, setBlog] = useState<Blog>();
-    console.log(id)
     useEffect(() => {
         axios.get(`${BACKEND_URL}/api/v1/blog/${id}`,
             {
@@ -67,7 +66,8 @@ export const getName = () =>{
     
     const token = localStorage.getItem("token") || ""
     const tokenWithoutBearer = token.replace("Bearer ", "");
-    const [payload]:any = tokenWithoutBearer?.split(".");
+    const parts = tokenWithoutBearer?.split(".");
+    const payload = parts[1]
     const decodedPayload = JSON.parse(atob(payload));
     const name = decodedPayload.name;
 

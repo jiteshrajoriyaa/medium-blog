@@ -1,11 +1,11 @@
 
 export const Skelaton = () => {
   return (
-<div className="w-auto mt-20 md:pl-28 lg:pl-48">
-        <div className="flex md:w-4/5 lg:w-2/5 flex-col">
-    <div role="status" className="4max-w-sm animate-pulse flex justify-center w-screen ">
+<div className="w-full mt-20  md:pl-28 lg:pl-48">
+        <div className="flex w-11/12 md:w-4/5 lg:w-2/5 flex-col">
+    <div role="status" className="4max-w-sm animate-pulse flex justify-center w-11/12 lg:w-screen ">
         <div className="w-full mt-2 ">
-        <div className="flex justify-left ml-24 gap-x-60 items-center w-4/5">
+        <div className="flex justify-left lg:ml-24 gap-x-60 items-center w-11/12">
             <div>
                 <div className="flex gap-x-3 pb-6">
                 <div className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-full dark:bg-gray-600">

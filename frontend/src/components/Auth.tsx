@@ -6,6 +6,7 @@ import { BACKEND_URL } from "../config";
 
 export const Auth = ({type}: {type: "signup" | "signin"}) => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const [postInputs,setPostInputs] = useState<SignupInput>({
         email: "",
         password: "",
@@ -13,13 +14,18 @@ export const Auth = ({type}: {type: "signup" | "signin"}) => {
     })
 
     async function sendRequest(){
+        setLoading(true);
         try{
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup"?"signup":"signin"}`, postInputs)
+            setLoading(false);
             const token = response.data.token;
             localStorage.setItem("token", "Bearer " + token);
             navigate("/blogs");
         }catch(e){
             alert("Error while signing up")
+        }finally{
+            setLoading(false);
+            
         }
     }
 
@@ -60,7 +66,28 @@ export const Auth = ({type}: {type: "signup" | "signin"}) => {
 
             <button 
             onClick={sendRequest}
-            className="bg-black text-white p-2 font-sans rounded-md font-semibold " >{type === "signup"? "Sign Up" : "Sign In"}</button>
+            className="bg-black hover:bg-gray-600 text-white p-2 font-sans rounded-md font-semibold flex justify-center" >{loading?(
+                <svg
+            className="animate-spin h-5 w-5 mr-3 text-white"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+            ></path>
+          </svg>
+            ):(type === "signup"? "Sign Up" : "Sign In")}</button>
         <div className="text-center text-slate-500	 text-sm pt-10 font-sm font-sans">Click “Sign in” to agree to Medium’s Terms of Service and acknowledge that Medium’s Privacy Policy applies to you.</div>
     </div>
         </div>

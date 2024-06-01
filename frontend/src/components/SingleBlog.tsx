@@ -21,7 +21,7 @@ export const SingleBlog = ({blog}: {blog:Blog})=>{
                 src={blog.img} alt="img"/>
             </div>
               
-            <div className="lg:mt-10 font-serif lg:text-lg">{blog.content}</div>
+            <div className="lg:mt-10 font-serif lg:text-lg whitespace-pre-wrap">{blog.content}</div>
         </div>
 }
 
