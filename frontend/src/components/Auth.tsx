@@ -31,7 +31,6 @@ export const Auth = ({type}: {type: "signup" | "signin"}) => {
 
     return <div className="flex flex-col justify-center items-center lg:w-7/12 h-screen" >
         <div className="w-9/12 flex gap-y-8	flex-col">
-            
             <div>
                 <div className="text-center text-3xl font-bold font-sans ">
                     {type === "signup" ? "Create an account" : "Welcome back"}
@@ -89,6 +88,7 @@ export const Auth = ({type}: {type: "signup" | "signin"}) => {
           </svg>
             ):(type === "signup"? "Sign Up" : "Sign In")}</button>
         <div className="text-center text-slate-500	 text-sm pt-10 font-sm font-sans">Click “Sign in” to agree to Medium’s Terms of Service and acknowledge that Medium’s Privacy Policy applies to you.</div>
+        <Link className="bg-black hover:bg-gray-600 text-white p-2 font-sans rounded-md font-semibold  text-center" to={"/visit"}>Click here to see some registered users</Link>
     </div>
         </div>
 }

@@ -87,9 +87,5 @@ export const CreateBlog = () => {
                 </div>
             </div>
         </div>
-
-
-        {/* 
-         */}
     </div>
 } 

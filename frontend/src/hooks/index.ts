@@ -10,7 +10,8 @@ export interface Blog {
         "name": string
     },
     "img": string,
-    "key": string
+    "key": string,
+    "createdAt": string
 }
 
 export const useBlog = ({ id }: { id: string }) => {

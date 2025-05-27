@@ -1,5 +1,6 @@
 import { Appbar } from "../components/Appbar"
 import { BlogCard } from "../components/BlogCard"
+import { dateFormatter } from "../components/SingleBlog";
 import { Skelaton } from "../components/Skelaton";
 import { getName, useBlogs } from "../hooks"
 
@@ -11,7 +12,7 @@ export const Blogs = () =>{
     if(loading){
         return <div>
              <Appbar name={name}/>
-        <div className="flex items-center justify-center flex-col w-screen">
+        <div className="flex items-center justify-center flex-col ml-72">
             <Skelaton/>
             <Skelaton/>
             <Skelaton/>
@@ -22,7 +23,7 @@ export const Blogs = () =>{
     return <div className="bg-white">
     <Appbar name={name} />
    
-    <div className="w-screen mt-24 lg:mt-28 flex justify-center ">
+    <div className="mt-24 lg:mt-28 flex justify-center ">
         <div className="flex flex-col justify-center w-11/12 lg:w-2/5 ">
             {blogs.map((blog) => 
                 <BlogCard 
@@ -30,7 +31,7 @@ export const Blogs = () =>{
                 id = {blog.id}
                 heading={blog.title} description = {blog.content}
                 authorName = {blog.author.name || "Anonymus "}
-                publishedDate ={"Dec 3, 2023"}
+                publishedDate ={dateFormatter(blog.createdAt)}
                 imgSrc={blog.img} />
             )}
             </div>

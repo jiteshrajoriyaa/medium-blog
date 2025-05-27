@@ -62,7 +62,7 @@ blogRouter.post('/', async (c) => {
         title: body.title,
         content: body.content,
         authorId: authorId,
-        img: body.img
+        img: body.img,
       }
     })
 
@@ -125,7 +125,11 @@ blogRouter.get('/bulk', async (c) => {
           name: true
         }
       },
-      img: true
+      img: true,
+      createdAt: true
+    }, 
+    orderBy:{
+      createdAt: "desc"
     }
   });
 
@@ -157,7 +161,8 @@ blogRouter.get('/:id', async (c) => {
             name: true
           }
         },
-        img: true
+        img: true,
+        createdAt: true
       }
     })
 

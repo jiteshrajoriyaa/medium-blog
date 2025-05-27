@@ -7,10 +7,13 @@ import { Blogs } from './pages/Blogs'
 import { CreateBlog } from './pages/CreateBlog'
 import { Publish } from './pages/Publish'
 import { Favicon } from './components/favicon'
+import { Visitor } from './pages/Visitor'
 
 
 function App() {
   
+
+
   return (
     <>
         <div>
@@ -24,6 +27,7 @@ function App() {
             <Route path="/blogs" element={<Blogs/>}/>
             <Route path="/new-story" element={<CreateBlog/>}/>
             <Route path="/publish" element={<Publish />}/>
+            <Route path="/visit" element={<Visitor />}/>
           </Routes>
         </BrowserRouter>
     </>
